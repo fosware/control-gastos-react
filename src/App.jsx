@@ -19,25 +19,45 @@ function App() {
   
   useEffect( ()=> {
     if( Object.keys(gastoEditar).length > 0 ) {
-      handleNuevoGasto()
+      setModal(true)
+    
+      setTimeout(() => {
+        setAnimarModal(true)
+      }, 400); 
     }  
   }, [gastoEditar])
 
   const handleNuevoGasto = () => {
     setModal(true)
+    setGastoEditar({})
     setTimeout(() => {
       setAnimarModal(true)
     }, 400);    
   }
 
   const guardarGasto = gasto => {
-    gasto.id = generarId()
-    gasto.fecha = Date.now()
-    setGastos([...gastos, gasto])
+    if(gasto.id) {
+      // actualizar
+      const gastosActualizados = gastos.map( 
+        gastosState  => gastosState.id === gasto.id ? gasto : gastosState) 
+        setGastos(gastosActualizados)
+        setGastoEditar({})
+    } else {
+      // nuevo
+      gasto.id = generarId()
+      gasto.fecha = Date.now()
+      setGastos([...gastos, gasto])
+    }
+    
     setAnimarModal(false);
       setTimeout(() => {
         setModal(false);        
     }, 400);
+  }
+
+  const eliminarGasto = id => {
+    const gastosActualizados = gastos.filter(gasto => gasto.id !== id)
+    setGastos(gastosActualizados)
   }
 
   return (
@@ -55,6 +75,7 @@ function App() {
             <ListadoGastos 
               gastos={gastos}
               setGastoEditar={setGastoEditar}
+              eliminarGasto={eliminarGasto}
             />
 
           </main>
@@ -74,6 +95,8 @@ function App() {
           animarModal={animarModal}
           setAnimarModal={setAnimarModal}
           guardarGasto={guardarGasto}
+          gastoEditar={gastoEditar}
+          setGastoEditar={setGastoEditar}
         />}
     </div>
   )
