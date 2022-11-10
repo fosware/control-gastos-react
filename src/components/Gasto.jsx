@@ -14,7 +14,8 @@ import IconoGastos from "../img/icono_gastos.svg"
 import IconoOcio from "../img/icono_ocio.svg"
 import IconoSalud from "../img/icono_salud.svg"
 import IconoSuscripciones from "../img/icono_suscripciones.svg"
-
+import IconoTransporte from "../img/icono_transporte.svg"
+import IconoMascota from "../img/icono_mascota.svg"
 
 const diccionarioIconos = {
     ahorro : IconoAhorro,
@@ -22,8 +23,10 @@ const diccionarioIconos = {
     casa : IconoCasa,
     gastos : IconoGastos,
     salud : IconoSalud,
+    transporte: IconoTransporte,
     suscripciones : IconoSuscripciones,
     ocio : IconoOcio,
+    mascotas : IconoMascota
 }
 
 const Gasto = ({gasto, setGastoEditar, eliminarGasto}) => {

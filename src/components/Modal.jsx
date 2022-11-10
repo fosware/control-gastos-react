@@ -20,6 +20,7 @@ const Modal = ({
     
     
     useEffect (()=> {
+    
         if( Object.keys(gastoEditar).length > 0 ) {
             setNombre(gastoEditar.nombre)
             setCantidad(gastoEditar.cantidad)
@@ -27,8 +28,8 @@ const Modal = ({
             setId(gastoEditar.id)
             setFecha(gastoEditar.fecha)
           } 
-    }, [])
-
+        }, [])
+        
   const ocultarModal = () => {
       setAnimarModal(false);
       setGastoEditar({})
@@ -97,6 +98,8 @@ const Modal = ({
                     <option value="casa">Casa</option>
                     <option value="gastos">Gastos Varios</option>
                     <option value="salud">Salud</option>
+                    <option value="mascotas">Mascotas</option>
+                    <option value="transporte">Transporte</option>
                     <option value="ocio">Ocio</option>
                     <option value="suscripciones">Suscripciones</option>
                 </select>                                                    
