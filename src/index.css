@@ -103,6 +103,7 @@ header h1 {
     background-color: #1048a4;
     border: none;
     padding: 1rem;
+    border-radius: 3rem;
     text-align: center;
     margin-top: 2rem;
     color: var(--blanco);
@@ -242,6 +243,7 @@ main {
     align-items: center;
     gap: 2rem;
 }
+
 .filtros label {
     font-size: 2.5rem;
     font-weight: 900;
@@ -349,6 +351,7 @@ main {
     top: 3rem;
     width: 3rem;
     height: 3rem;
+    z-index: 1000;
 }
 .modal .cerrar-modal img {
     width: 100%;
@@ -372,6 +375,7 @@ body .modal {
 .modal .formulario.animar {
     position: relative;
     opacity: 1;
+    max-width: 85%;
 }
 
 .modal .formulario.cerrar {
@@ -405,4 +409,19 @@ body .modal {
     align-items: center;
     font-size: 2.4rem;
     text-align: right;
+}
+
+
+@media (max-width: 530px) {
+    .filtros .campo {
+        display: block;    
+    }
+    .filtros select {
+        margin-top: 2rem;
+        width: 100%;
+    }
+    .fecha-gasto span {
+        display: block;
+        padding: 0.5rem 0;
+    }   
 }
