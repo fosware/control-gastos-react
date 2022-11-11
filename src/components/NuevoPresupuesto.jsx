@@ -25,10 +25,13 @@ const NuevoPresupuesto = ({presupuesto, setPresupuesto, setIsValidPresupuesto}) 
             <label htmlFor="">Definir Presupuesto</label>
             <input 
                 className='nuevo-presupuesto'
-                type="number"
+                
                 placeholder='Agrega tu presupuesto'
                 value={presupuesto}
-                onChange={ e => setPresupuesto( Number(e.target.value ) )}
+                type="text" inputmode="numeric" pattern="\d*" 
+
+                onChange={ e =>  Number(e.target.value) ? setPresupuesto( Number(e.target.value )) : setPresupuesto(0)
+                }
              />
              <input type="submit" value="Agregar" />
              { mensaje && <Mensaje tipo='error'>{mensaje} </Mensaje> }
