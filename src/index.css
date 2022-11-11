@@ -424,4 +424,7 @@ body .modal {
         display: block;
         padding: 0.5rem 0;
     }   
+    .gasto {
+        justify-content: center;
+    }
 }
